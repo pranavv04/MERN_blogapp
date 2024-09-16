@@ -1,0 +1,28 @@
+/* Light Mode Styles */
+body {
+    background-color: #f0f0f0;
+    color: #333;
+  }
+  
+  /* Dark Mode Styles */
+  .dark {
+    background-color: #333;
+    color: #f0f0f0;
+  }
+  
+  .dark .bg-gray-200 {
+    background-color: #2d2d2d; /* Dark background for Navbar */
+  }
+  
+  .dark .text-violet-950 {
+    color: #d6d6d6; /* Adjust text color */
+  }
+  
+  .dark .bg-blue-500 {
+    background-color: #3b3b3b; /* Adjust button background */
+  }
+  
+  .dark .bg-gray-800 {
+    background-color: #1c1c1c; /* Adjust button background */
+  }
+  
