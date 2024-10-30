@@ -1,50 +1,70 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { MdEdit } from "react-icons/md";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import './navbar.css';
+import { IoLogoRss } from "react-icons/io";
+import { CgProfile } from "react-icons/cg";
 
-import { FaPenAlt } from "react-icons/fa";
 const Navbar = () => {
-  const [user, setUser] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Check if the user is logged in by checking localStorage
+    const username = localStorage.getItem("username");
+    if (username) {
+      setIsLoggedIn(true);
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("username"); // Clear the username from localStorage
+    setIsLoggedIn(false); // Update the state to reflect logout
+    navigate("/"); // Optionally navigate to the home page after logout
+  };
 
   const username = localStorage.getItem("username");
+
   return (
-    <div className="flex justify-between shadow-lg bg-gray-200 h-[80px]  w-[100%] top-0 border-b  border-gray-300">
+    <div className="flex justify-between bg-white h-[80px] w-[100%] top-0 border border-gray-100">
       <NavLink to="/" >
-      <div className="flex flex-row">
-      <h1 className="text-2xl font-extrabold m-4 mt-6 transition duration-500 ease-in text-violet-950 cursor-pointer font-serif flex  ">
-        <FaPenAlt  className="text-2xl mr-2 ml-5 mt-1"/> My Blog.
-        </h1>
-      </div>
-       
+        <div className="flex flex-row">
+          <h1 className="logo text-2xl font-extrabold m-4 mt-6 transition duration-500 ease-in text-black cursor-pointer flex">
+            Blogify<IoLogoRss className="text-2xl mt-1" />
+          </h1>
+        </div>
       </NavLink>
-      {username ? (
-        <div className="flex m-4 bg-">
-          <h2 className="text-md text-blue-500 underline font-semibold m-4 ">
+      {isLoggedIn ? (
+        <div className="flex m-4">
+          <CgProfile className="text-lg mt-5 mr-1" />
+          <h2 className="text-md text-black font-semibold m-4 ml-0 uppercase">
             {username}
           </h2>
           <NavLink to="/create-blog">
-            <button className="m-0 bg-black px-4 py-2 justify-center text-md text-center rounded-lg flex mt-2 text-white font-bold">
-              {" "}
-              <MdEdit className="text-xl mt-1 mr-2 text-white " /> Create Blog
+            <button className="m-0 bg-black px-3 py-2 justify-center text-sm text-center rounded-lg flex mt-2 text-white">
+              <MdEdit className="text-sm mt-1 mr-2 text-white" /> Create Blog
+            </button>
+          </NavLink>
+          <button 
+            onClick={handleLogout} 
+            className="text-sm border py-1 px-4 rounded-md border-red-500 ml-4 mr-4 mt-2 font-bold text-red-500"
+          >
+            Logout
+          </button>
+        </div>
+      ) : (
+        <div className="flex h-[40px] mt-3">
+          <NavLink to="/signup">
+            <button className="mr-3 px-4 py-2 rounded-md bg-blue-500 text-white justify-center flex text-center transition duration-500 ease-in-out hover:bg-black text-sm font-semibold">
+              Sign Up
+            </button>
+          </NavLink>
+          <NavLink to="/login">
+            <button className="mr-3 px-4 py-2 rounded-md text-black justify-center flex text-center text-sm font-semibold">
+              Login
             </button>
           </NavLink>
         </div>
-      ) : (
-        <>
-          <div className="flex h-[40px] mt-3">
-            <NavLink to="/signup">
-              {" "}
-              <button className="mr-3  px-4 py-2 rounded-md bg-blue-500 text-white justify-center flex text-center transition duration-500 ease-in-out hover:bg-black text-md font-semibold">
-                Sign Up
-              </button>
-            </NavLink>
-            <NavLink to="/login">
-              <button className="mr-3  px-4 py-2 rounded-md bg-gray-800 text-white justify-center flex text-center transition duration-500 ease-in-out hover:bg-black text-md font-semibold ">
-                Login
-              </button>
-            </NavLink>
-          </div>
-        </>
       )}
     </div>
   );

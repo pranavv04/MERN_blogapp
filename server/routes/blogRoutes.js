@@ -49,21 +49,28 @@ router.get('/:id', async (req, res) => {
 });
 
 // Update a blog post by ID
+// Update a blog post by ID
 router.put('/:id', async (req, res) => {
     try {
         const blogId = req.params.id;
         const updateBlog = req.body;
+        
+        console.log("Blog ID:", blogId); // Log the ID
+        console.log("Update Data:", updateBlog); // Log the incoming data
+
         const response = await Blog.findByIdAndUpdate(blogId, updateBlog, {
             new: true,
             runValidators: true
         });
+
         if (!response) {
             return res.status(404).json({ error: "Failed to update blog post" });
         }
+        
         console.log("Post updated");
         res.status(200).json(response);
     } catch (error) {
-        console.log(error);
+        console.log("Error:", error); // Log the error
         res.status(500).json({ error: 'Internal server error' });
     }
 });

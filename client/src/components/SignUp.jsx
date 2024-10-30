@@ -54,14 +54,15 @@ const SignUp = () => {
   return (
     <div>
       <form onSubmit={handleSubmit} className='bg-gray-100 h-[88.5vh] flex justify-center align-middle text-center'>
-        <div className='flex flex-col justify-center items-center border border-black m-5 px-4 rounded-lg'>
-          <h2 className='text-4xl text-blue-500 font-bold mb-5'>Welcome, Sign in to My Blogs.</h2>
+        <div className='flex flex-col justify-center items-center border border-black m-5 px-4 rounded-lg w-[600px]'>
+          <h2 className='text-2xl text-black font-bold mb-5'>Sign Up</h2>
+          <p className='text-sm text-gray-400'>Create your new account and start Blogify now.</p>
 
           <input
             name="name"
             value={formData.name}
             onChange={handleInputChange}
-            className='px-4 py-2 text-center m-2 rounded-md bg-gray-100 border border-black placeholder:text-black text-black w-[300px]'
+            className='px-4 py-2 text-center m-2 rounded-md text-sm bg-gray-100 border border-gray-400 placeholder:text-gray-700 placeholder:text-sm text-black w-[300px]'
             type="text"
             placeholder='Enter your name'
           />
@@ -69,7 +70,7 @@ const SignUp = () => {
             name="username"
             value={formData.username}
             onChange={handleInputChange}
-            className='px-4 py-2 text-center m-2 rounded-md border border-black bg-gray-100 placeholder:text-black text-black w-[300px]'
+            className='px-4 py-2 text-center m-2 rounded-md border border-gray-400 text-sm bg-gray-100 placeholder:text-gray-700 placeholder:text-sm text-black w-[300px]'
             type="text"
             placeholder='Enter username'
           />
@@ -77,7 +78,7 @@ const SignUp = () => {
             name="email"
             value={formData.email}
             onChange={handleInputChange}
-            className='px-4 py-2 text-center m-2 rounded-md bg-gray-100 placeholder:text-black text-black border border-black w-[300px]'
+            className='px-4 py-2 text-center text-sm m-2 rounded-md bg-gray-100 placeholder:text-gray-700 placeholder:text-sm text-black border border-gray-400  w-[300px]'
             type="email"
             placeholder='Enter your email'
           />
@@ -85,18 +86,18 @@ const SignUp = () => {
             name="password"
             value={formData.password}
             onChange={handleInputChange}
-            className='px-4 py-2 text-center m-2 rounded-md bg-gray-100 placeholder:text-black text-black border border-black w-[300px]'
+            className='px-4 py-2 text-center m-2 text-sm rounded-md bg-gray-100 placeholder:text-gray-700 placeholder:text-sm text-black border border-gray-400  w-[300px]'
             type="password"
             placeholder='Enter password'
           />
           <div className='flex m-3'>
             <button
               type="submit"
-              className='bg-black transition duration-500 ease-in-out px-4 py-2 text-white rounded-md w-[90px] hover:bg-gray-900 mt-4 text-md font-semibold'>
+              className='bg-blue-500 transition duration-500 ease-in-out px-3 py-2 text-white rounded-md w-[90px] hover:bg-gray-900 mt-4 text-sm font-semibold'>
               Submit
             </button>
             <NavLink to='/login'>
-              <p className='mt-6 ml-3 text-blue-500 underline'>Already have an account?</p>
+              <p className='mt-6 ml-3 text-sm text-black underline'>Already have an account?</p>
             </NavLink>
           </div>
         </div>

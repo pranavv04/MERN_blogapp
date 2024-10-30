@@ -48,27 +48,29 @@ const handleSubmit = async(e)=>{
   return (
     <div>
       <form onSubmit={handleSubmit} action="" className='bg-gray-100 h-[88.5vh] flex justify-center align-middle text-center'  >
-        <div className='flex flex-col justify-center items-center  border m-5 shadow-lg px-4 border-gray-300'>
-        <h2 className='text-4xl text-blue-500 font-bold mb-5'>Welcome, Login to My Blogs.</h2>
+        <div className='flex flex-col justify-center items-center  border m-5 shadow-lg px-4 border-gray-300 w-[700px]'>
+        <h2 className='text-2xl text-black  font-bold mb-5'>Login</h2>
+        <p className='text-sm  text-gray-500'>Welcome Back. Please login your account</p>
 
-        
+        {/* <p className='text-sm text-gray-400 mt-5'>Enter Username</p> */}
         <input
-         className='px-4 py-2 text-center border border-black text-black m-2 rounded-md bg-gray-100  placeholder:text-black w-[300px]'
+         className='px-4 py-2 text-sm text-center border border-gray-400 text-black m-2 rounded-md bg-gray-100  placeholder:text-black w-[300px] placeholder:text-sm '
          name='username'
           type="text"   
-          placeholder='Enter username'
+          placeholder='Enter username..'
            value={formData.username} 
            onChange={handleInputChange} username='username'/>
        
-        <input password='password' value={formData.password}  onChange={handleInputChange} className='px-4 py-2 text-center m-2 rounded-md bg-gray-100 border border-black  placeholder:text-black text-black w-[300px]' type="password" placeholder='Enter password' name='password' />
+        <input password='password' value={formData.password}  onChange={handleInputChange} className='px-4 text-sm  py-2 text-center m-2 rounded-md bg-gray-100 border border-gray-400  placeholder:text-black placeholder:text-sm  text-black w-[300px]' type="password" placeholder='Enter password..' name='password' />
 
         <div className='flex m-4'>
-        <button className='bg-black transition duration-500 ease-in-out px-4 py-2 text-white rounded-md w-[90px] hover:bg-blue-500 mt-4 text-md font-semibold' type='submit'>Submit</button>
-        <NavLink to='/signup'><p className='ml-7 mt-5 text-blue-500 underline '>New user? Sign In</p></NavLink>
+        <button className='bg-blue-500 transition duration-500 ease-in-out px-3 py-2 text-white rounded-md w-[90px] mt-4 text-sm font-semibold' type='submit'>Submit</button>
+        <NavLink to='/signup'><p className='ml-7 mt-5 text-black underline '>New user? Sign Up</p></NavLink>
         </div>
        
         </div>
-    </form> 
+    </form>
+    <ToastContainer/> 
     </div>
   )
 }

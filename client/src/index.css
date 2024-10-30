@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 *{
-    font-family: "Inter", sans-serif;
+    
+   font-family: "Poppins", sans-serif;
 }
 
 /* For Webkit browsers (Chrome, Safari) */
