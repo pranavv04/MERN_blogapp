@@ -12,7 +12,7 @@ const Home = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await fetch(`http://localhost:2000/blogs?limit=${limit}`);
+        const response = await fetch(`https://mern-blogapp-e6sj.onrender.com/blogs?limit=${limit}`);
         if (response.ok) {
           const data = await response.json();
           // If data length is less than limit, set hasMore to false
