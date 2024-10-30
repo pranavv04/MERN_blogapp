@@ -44,7 +44,7 @@ const Update = () => {
     console.log("Sending data:", updatedFormData);
 
     try {
-      const response = await fetch(`http://localhost:2000/blogs/${id}`, {
+      const response = await fetch(`https://mern-blogapp-e6sj.onrender.com/blogs/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
