@@ -39,7 +39,7 @@ const CreateBlog = () => {
     };
 
     try {
-      const response = await fetch('http://localhost:2000/blogs/addblog', {
+      const response = await fetch('https://mern-blogapp-e6sj.onrender.com/blogs/addblog', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
